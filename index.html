@@ -1,0 +1,193 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Dakin</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="icon" href="favico.png">
+	<meta charset="UTF-8">
+	<meta name="description" content="The next gen search engine">
+	<meta name="aurthor" content="Dakin">
+	<meta property="og:title" content="Dakin">
+	<meta property="og:type" content="website">
+	<meta property="og:url" content="https://dakin.rf.gd/">
+	<meta porperty="og:image" content="https://dakin.rf.gd/favico.png">
+	<meta property="og:description" content="The best homepage on the internet">
+	<meta name="viewport" content="width=device-width, intital-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<link rel="apple-touch-icon" href="touch-icon-iphone.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="touch-icon-ipad.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="touch-icon-iphone-retina.png">
+	<link rel="apple-touch-icon" sizes="167x167" href="touch-icon-ipad-retina.png">
+	<script src="searchboxmgr.js"></script>
+	<script src="autofillmgr.js"></script>
+	<script src="navmgr.js"></script>
+	<script src="resultsmgr.js"></script>
+	<script src="finder.js"></script>
+	<script src="quickinfo.js"></script>
+	<script src="continuity.js"></script>
+	<script>
+		path = window.location.toString();
+		if (path.includes("?i=")) {
+            newpath = path.replace("?i=1", "")
+            newpath = newpath.replace("?i=2", "")
+            newpath = newpath.replace("?i=3", "")
+            newpath = newpath.replace("?i=4", "")
+            newpath = newpath.replace("?i=5", "")
+            newpath = newpath.replace("?i=6", "")
+            newpath = panewpath.replace("?i=7", "")
+            newpath = newpath.replace("?i=8", "")
+			window.location="newpath"
+        }
+		trends = [];
+		terms = [];
+		web = [];
+		img = [];
+		vid = [];
+		news = [];
+		quickinfo = [];
+		keyword = '';
+		trendsboot();
+		termsboot();
+		bootweb();
+		bootimg();
+		bootvid();
+		bootnews();
+		bootquickinfo();
+		setTimeout(() => {
+			continuity();
+        }, 1000);
+	</script>
+</head>
+<body>
+	<div class="grid-homeui1" id="homeui1">
+		<div class="grid-item">
+			<img src="logo.png" onclick="killsearchbox1()">
+			<br>
+			<form>
+				<input type="text" class="searchin" name="searchin1" id="searchin1" onclick="showsearchbox1()" onmouseup="killsearchbox1()" oninput="showterms1()">
+				<input type="button" name="gofind1" id="gofind1" value="Find" onclick="gofind(searchin1.value)">
+			</form>
+			<div class="grid-searchbox1" id="searchbox1">
+				<div class="grid-item" id="searchbox1main">
+
+				</div>
+			</div>
+			<button id="advanceurl" onclick="showadvance()">Advance</button>
+			<br>
+			<h class="fakeurl" id="abouturl" onclick="showabout()">About</h>
+			<h class="fakeurl" id="privacyurl" onclick="showprivacy()">Privacy</h>
+			<h class="fakeurl" id="languageurl" onclick="showlang()">Language</h>
+		</div>
+	</div>
+
+	<div class="grid-main" id="advancescr" style="display: none;">
+		<div class="grid-item">
+			<img src="logo.png">
+			<br>
+			<h1 id="advancestr">Advance Search</h1>
+			<h3>This feature is not yet ready</h3>
+			<button onclick="gohome()">OK</button>
+		</div>
+	</div>
+
+	<div class="grid-main" id="aboutscr" style="display: none;">
+		<div class="grid-item">
+			<img src="logo.png">
+			<br>
+			<h1 id="aboutstr">About</h1>
+			<h3>This feature is not yet ready</h3>
+			<button onclick="gohome()">OK</button>
+		</div>
+	</div>
+
+	<div class="grid-main" id="privacyscr" style="display: none;">
+		<div class="grid-item">
+			<img src="logo.png">
+			<br>
+			<h1 id="privacystr">Privacy</h1>
+			<h3>This feature is not yet ready</h3>
+			<button onclick="gohome()">OK</button>
+		</div>
+	</div>
+
+	<div class="grid-main" id="langscr" style="display: none;">
+		<div class="grid-item">
+			<img src="logo.png">
+			<br>
+			<h1 id="langstr">Language</h1>
+			<h3>This feature is not yet ready</h3>
+			<button onclick="gohome()">OK</button>
+		</div>
+	</div>
+
+	<div class="grid-homeui2" id="homeui2" style="display: none">
+		<div class="grid-item">
+			<img src="logo.png" onclick="killsearchbox2()">
+			<br>
+			<form>
+				<input type="text" class="searchin" name="searchin2" id="searchin2" onclick="showsearchbox2()" onmouseup="killsearchbox2()" oninput="showterms2()">
+				<input type="button" name="gofind2" id="gofind2" value="Find" onclick="gofind(searchin2.value)">
+			</form>
+			<div class="grid-searchbox2" id="searchbox2">
+				<div class="grid-item" id="searchbox2main">
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="grid-tabs" id="tabssecweb" style="display: none;">
+		<div class="grid-item">
+			<button class="activetab" id="webtab1" onclick="gofind(keyword)">Web</button>
+			<button id="imgtab1" onclick="gofindimg()">Images</button>
+			<button id="vidtab1" onclick="gofindvid()">Videos</button>
+			<button id="newstab1" onclick="gofindnews()">News</button>
+		</div>
+	</div>
+
+	<div class="grid-tabs" id="tabssecimg" style="display: none;">
+		<div class="grid-item">
+			<button id="webtab2" onclick="gofind(keyword)">Web</button>
+			<button class="activetab" id="imgtab2" onclick="gofindimg()">Images</button>
+			<button id="vidtab2" onclick="gofindvid()">Videos</button>
+			<button id="newstab2" onclick="gofindnews()">News</button>
+		</div>
+	</div>
+
+	<div class="grid-tabs" id="tabssecvid" style="display: none;">
+		<div class="grid-item">
+			<button id="webtab3" onclick="gofind(keyword)">Web</button>
+			<button id="imgtab3" onclick="gofindimg()">Images</button>
+			<button class="activetab" id="vidtab3" onclick="gofindvid()">Videos</button>
+			<button id="newstab3" onclick="gofindnews()">News</button>
+		</div>
+	</div>
+
+	<div class="grid-tabs" id="tabssecnews" style="display: none;">
+		<div class="grid-item">
+			<button id="webtab4" onclick="gofind(keyword)">Web</button>
+			<button id="imgtab4" onclick="gofindimg()">Images</button>
+			<button id="vidtab4" onclick="gofindvid()">Videos</button>
+			<button class="activetab" id="newstab4" onclick="gofindnews()">News</button>
+		</div>
+	</div>
+
+	<div class="grid-quickinfo" id="quickinfowin" style="display: none;">
+		<div class="grid-item" id="quickinfobox">
+
+		</div>
+	</div>
+
+	<div class="grid-allresults" id="allresults" style="display: none;">
+		<div class="grid-item" id="allresultsbox">
+
+		</div>
+	</div>
+	<div class="grid-copyrightbox" id="copyrightbox" style="display: none;">
+		<div class="grid-item" style="text-align: center;">
+			<h3>&copy;2022 Dakin</h3>
+		</div>
+	</div>
+
+
+</body>
+</html>
