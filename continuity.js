@@ -13,7 +13,7 @@ function continuity() {
         showlang();
     }
     if (getpath.includes("#find=")) {
-        keyword = getpath.replace("https://piesek.rf.gd/#find=", "")
+        keyword = getpath.replace("https://dakin.rf.gd/#find=", "")
         keyword = keyword.replace("&type=web", "")
         keyword = keyword.replace("&type=img", "")
         keyword = keyword.replace("&type=vid", "")

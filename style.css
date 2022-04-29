@@ -9,21 +9,43 @@ body {
 	margin: 0;
 	padding: 0;
 	font-family: myFirstFont;
+	background-image: url("bg.jpg");
+	background-size: cover;
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
 }
 
+	body:after {
+		content: "";
+		position: fixed; /* stretch a fixed position to the whole screen */
+		top: 0;
+		height: 100vh; /* fix for mobile browser address bar appearing disappearing */
+		left: 0;
+		right: 0;
+		z-index: -1; /* needed to keep in the background */
+		background: url("bg.jpg") center center;
+		-webkit-background-size: cover;
+		-moz-background-size: cover;
+		-o-background-size: cover;
+		background-size: cover;
+	}
+
 .grid-main {
-	width: auto;
-	height: 1080px;
+	width: 80%;
+	height: 280px;
 	display: grid;
-	background-color: white;
+	background-color: rgba(255, 255, 255, 0.8);
+	margin-left: 10%;
 	text-align: center;
 }
 
 .grid-homeui1 {
-	width: 32%;
-	height: 180px;
+	width: 42%;
+	height: auto;
 	display: grid;
-	background-color: white;
+	background-color: rgba(255, 255, 255, 0.8);
 	text-align: center;
 	margin-top: 15%;
 	margin-left: 30%;
@@ -31,9 +53,9 @@ body {
 
 .grid-homeui2 {
 	width: 80%;
-	height: 60px;
+	height: 88px;
 	display: grid;
-	background-color: white;
+	background-color: rgba(255, 255, 255, 0.8);
 	text-align: center;
 	margin-left: 10%;
 }
@@ -42,7 +64,7 @@ body {
 	width: 80%;
 	height: 28px;
 	display: grid;
-	background-color: white;
+	background-color: rgba(255, 255, 255, 0.8);
 	text-align: center;
 	margin-left: 10%;
 }
@@ -51,7 +73,7 @@ body {
 	width: 80%;
 	height: 186px;
 	display: grid;
-	background-color: white;
+	background-color: rgba(255, 255, 255, 0.8);
 	text-align: center;
 	margin-left: 10%;
 }
@@ -60,7 +82,7 @@ body {
 	width: 80%;
 	height: 1366px;
 	display: grid;
-	background-color: white;
+	background-color: rgba(255, 255, 255, 0.8);
 	text-align: center;
 	margin-left: 10%;
 }
@@ -73,8 +95,8 @@ body {
 	display: none;
 	background-color: white;
 	text-align: center;
-	margin-top: 0px;
-	margin-left: 152px;
+	margin-top: -2px;
+	margin-left: 13%;
 	position: absolute;
 	border: solid 1px black;
 }
@@ -85,29 +107,19 @@ body {
 	display: none;
 	background-color: white;
 	text-align: center;
-	margin-top: 0px;
-	margin-left: 521px;
+	margin-top: -0.05%;
+	margin-left: 33.85%;
 	position: absolute;
 	border: solid 1px black;
 }
 
-.grid-quickinfoimg {
-	width: 20%;
-	height: 180px;
-	display: inline-block;
-}
 
-.grid-quickinfotxt {
-	width: 70%;
-	height: 180px;
-	display: inline-block;
-}
 
 .grid-copyrightbox {
 	width: 80%;
-	height: 32px;
+	height: 48px;
 	display: grid;
-	background-color: white;
+	background-color: rgba(255, 255, 255, 0.8);
 	text-align: center;
 	margin-left: 10%;
 }
@@ -134,20 +146,21 @@ body {
 
 button {
 	margin-top: 5px;
+	background-color: #DDDDDC;
+	border: solid 1px #838383;
+	font-family: myFirstFont;
+	color: black;
 }
 
-.quicktitle {
-
+.activetab {
+	background-color: rgba(255, 255, 255, 0.8);
+	border: none;
 }
 
-.quicksubtitle {
-	margin-top: -20px;
+a {
+	color: black;
 }
 
-.quicktext {
-	margin-top: -20px;
-	font-size: 14px;
-}
 
 @media(max-width: 600px) {
 	.searchin {
@@ -160,8 +173,8 @@ button {
 		display: none;
 		background-color: white;
 		text-align: center;
-		margin-top: -24px;
-		margin-left: 4px;
+		margin-top: 0%;
+		margin-left: 1.1%;
 		position: absolute;
 		font-size: 24px;
 		border: solid 1px black;
@@ -173,8 +186,8 @@ button {
 		display: none;
 		background-color: white;
 		text-align: center;
-		margin-top: -2px;
-		margin-left: 52px;
+		margin-top: -0.05%;
+		margin-left: 26.5%;
 		position: absolute;
 		font-size: 24px;
 		border: solid 1px black;
@@ -193,27 +206,21 @@ button {
 		margin-top: 3px;
 	}
 
+	.grid-tabs {
+		white-space: nowrap;
+		overflow-x: scroll;
+	}
+
 	.grid-quickinfo {
 		width: 80%;
-		height: 186px;
+		height: 200px;
 		display: grid;
-		background-color: white;
+		background-color: rgba(255, 255, 255, 0.8);
 		text-align: center;
 		margin-left: 10%;
 	}
 
 
-	.quicktitle {
-	}
-
-	.quicksubtitle {
-		margin-top: -20px;
-		font-size: 12px;
-	}
-
-	.quicktext {
-		margin-top: -5px;
-		font-size: 6px;
-	}
+	
 	
 }

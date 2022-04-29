@@ -1,24 +1,26 @@
 function nothing() {
     allresultsbox.innerHTML = "";
-    allresultsbox.innerHTML += '<h1 id="noresulttext">No Results Found</h1>';
+    allresultsbox.innerHTML += '<img src="nothing.png"><h1 id="noresulttext">No Results Found</h1>';
 }
 
 function webchk() {
     hasresults = 0;
     allresultsbox.innerHTML = "";
-    allresultsbox.innerHTML += '<img src="loading.gif">';
-    for (i = 0; i < web.length; i++) {
-        if (web[i][5].includes(keyword)) {
-            hasresults = 1;
+    allresultsbox.innerHTML += '<img src="loading.png"><h1>Finding</h1>';
+    setTimeout(() => {
+        for (i = 0; i < web.length; i++) {
+            if (web[i][5].includes(keyword)) {
+                hasresults = 1;
+            }
         }
-    }
-    if (hasresults == 1) {
-        allresultsbox.innerHTML = "";
-        showallweb();
-    }
-    else {
-        nothing();
-    }
+        if (hasresults == 1) {
+            allresultsbox.innerHTML = "";
+            showallweb();
+        }
+        else {
+            nothing();
+        }
+    }, 2000);
 }
 
 function imgchk() {

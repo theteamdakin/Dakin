@@ -24,19 +24,20 @@
 	<script src="finder.js"></script>
 	<script src="quickinfo.js"></script>
 	<script src="continuity.js"></script>
+	<script src="ifix.js"></script>
 	<script>
 		path = window.location.toString();
 		if (path.includes("?i=")) {
-            newpath = path.replace("?i=1", "")
-            newpath = newpath.replace("?i=2", "")
-            newpath = newpath.replace("?i=3", "")
-            newpath = newpath.replace("?i=4", "")
-            newpath = newpath.replace("?i=5", "")
-            newpath = newpath.replace("?i=6", "")
-            newpath = panewpath.replace("?i=7", "")
-            newpath = newpath.replace("?i=8", "")
-			window.location="newpath"
-        }
+			newpath = path.replace("?i=1", "")
+			newpath = newpath.replace("?i=2", "")
+			newpath = newpath.replace("?i=3", "")
+			newpath = newpath.replace("?i=4", "")
+			newpath = newpath.replace("?i=5", "")
+			newpath = newpath.replace("?i=6", "")
+			newpath = panewpath.replace("?i=7", "")
+			newpath = newpath.replace("?i=8", "")
+			window.location = "newpath"
+		}
 		trends = [];
 		terms = [];
 		web = [];
@@ -53,8 +54,9 @@
 		bootnews();
 		bootquickinfo();
 		setTimeout(() => {
+            ifix();
 			continuity();
-        }, 1000);
+		}, 1000);
 	</script>
 </head>
 <body>
@@ -62,10 +64,8 @@
 		<div class="grid-item">
 			<img src="logo.png" onclick="killsearchbox1()">
 			<br>
-			<form>
-				<input type="text" class="searchin" name="searchin1" id="searchin1" onclick="showsearchbox1()" onmouseup="killsearchbox1()" oninput="showterms1()">
-				<input type="button" name="gofind1" id="gofind1" value="Find" onclick="gofind(searchin1.value)">
-			</form>
+			<input type="text" class="searchin" name="searchin1" id="searchin1" onclick="showsearchbox1()" onmouseup="killsearchbox1()" oninput="showterms1()" autocomplete="off">
+			<button id="gofind1" value="Find" onclick="gofind(searchin1.value)">Find</button>
 			<div class="grid-searchbox1" id="searchbox1">
 				<div class="grid-item" id="searchbox1main">
 
@@ -123,10 +123,8 @@
 		<div class="grid-item">
 			<img src="logo.png" onclick="killsearchbox2()">
 			<br>
-			<form>
-				<input type="text" class="searchin" name="searchin2" id="searchin2" onclick="showsearchbox2()" onmouseup="killsearchbox2()" oninput="showterms2()">
-				<input type="button" name="gofind2" id="gofind2" value="Find" onclick="gofind(searchin2.value)">
-			</form>
+			<input type="text" class="searchin" name="searchin2" id="searchin2" onclick="showsearchbox2()" onmouseup="killsearchbox2()" oninput="showterms2()" autocomplete="off">
+			<button id="gofind2" onclick="gofind(searchin2.value)">Find</button>
 			<div class="grid-searchbox2" id="searchbox2">
 				<div class="grid-item" id="searchbox2main">
 
@@ -140,7 +138,7 @@
 			<button class="activetab" id="webtab1" onclick="gofind(keyword)">Web</button>
 			<button id="imgtab1" onclick="gofindimg()">Images</button>
 			<button id="vidtab1" onclick="gofindvid()">Videos</button>
-			<button id="newstab1" onclick="gofindnews()">News</button>
+			<button id="newstab1" onclick="gofind()">News</button>
 		</div>
 	</div>
 
@@ -149,7 +147,7 @@
 			<button id="webtab2" onclick="gofind(keyword)">Web</button>
 			<button class="activetab" id="imgtab2" onclick="gofindimg()">Images</button>
 			<button id="vidtab2" onclick="gofindvid()">Videos</button>
-			<button id="newstab2" onclick="gofindnews()">News</button>
+			<button id="newstab2" onclick="gofind()">News</button>
 		</div>
 	</div>
 
@@ -158,7 +156,7 @@
 			<button id="webtab3" onclick="gofind(keyword)">Web</button>
 			<button id="imgtab3" onclick="gofindimg()">Images</button>
 			<button class="activetab" id="vidtab3" onclick="gofindvid()">Videos</button>
-			<button id="newstab3" onclick="gofindnews()">News</button>
+			<button id="newstab3" onclick="gofind()">News</button>
 		</div>
 	</div>
 
@@ -167,7 +165,7 @@
 			<button id="webtab4" onclick="gofind(keyword)">Web</button>
 			<button id="imgtab4" onclick="gofindimg()">Images</button>
 			<button id="vidtab4" onclick="gofindvid()">Videos</button>
-			<button class="activetab" id="newstab4" onclick="gofindnews()">News</button>
+			<button class="activetab" id="newstab4" onclick="gofind()">News</button>
 		</div>
 	</div>
 

@@ -10,18 +10,21 @@ function gofind(newterm) {
     tabssecweb.style.display = "grid";
     tabssecimg.style.display = "none";
     tabssecvid.style.display = "none";
-    tabssecnews.style.display = "none";
+
     allresults.style.display = "grid";
     copyrightbox.style.display = "grid";
     webchk();
-    quickinfochk();
+    setTimeout(() => {
+        quickinfochk();
+    }, 2000);
+    
 }
 
 function gofindimg() {
     tabssecweb.style.display = "none";
     tabssecimg.style.display = "grid";
     tabssecvid.style.display = "none";
-    tabssecnews.style.display = "none";
+
     killquickinfo();
     window.location = "#find=" + keyword + "&type=img"
     imgchk();
@@ -31,20 +34,10 @@ function gofindvid() {
     tabssecweb.style.display = "none";
     tabssecimg.style.display = "none";
     tabssecvid.style.display = "grid";
-    tabssecnews.style.display = "none";
+
     killquickinfo();
     window.location = "#find=" + keyword + "&type=vid" 
     vidchk();
-}
-
-function gofindnews() {
-    tabssecweb.style.display = "none";
-    tabssecimg.style.display = "none";
-    tabssecvid.style.display = "none";
-    tabssecnews.style.display = "grid";
-    killquickinfo();
-    window.location = "#find=" + keyword + "&type=news"
-    newschk(); 
 }
 
 function showadvance() {
